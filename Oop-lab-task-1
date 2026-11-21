@@ -1,0 +1,29 @@
+class Shape {
+    void area() {
+        System.out.println("Area of Shape");
+    }
+    void area(int side) {
+        int result = side * side;
+        System.out.println("Area of Square: " + result);
+    }
+    void area(int length, int width) {
+        int result = length * width;
+        System.out.println("Area of Rectangle: " + result);
+    }
+}
+class Rectangle extends Shape {
+    @Override
+    void area() {
+        System.out.println("This is Rectangle Class");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Shape s1 = new Shape();
+        s1.area();
+        s1.area(5);
+        s1.area(10, 5);
+        Rectangle r1 = new Rectangle();
+        r1.area();
+    }
+}
