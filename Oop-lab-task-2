@@ -1,0 +1,71 @@
+class Person {
+    String name;
+    int age;
+    static String universityName = "NUML University";
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    static void showUniversityInfo() {
+        System.out.println("University Name: " + universityName);
+    }
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+class Teacher extends Person {
+    String subject;
+    double salary;
+    Teacher(String name, int age, String subject) {
+        super(name, age);
+        this.subject = subject;
+        this.salary = 50000;
+    }
+    Teacher(String name, int age, String subject, double salary) {
+        super(name, age);
+        this.subject = subject;
+        this.salary = salary;
+    }
+    @Override
+    void displayInfo() {
+        System.out.println("\n--- Teacher Information ---");
+        super.displayInfo();
+        System.out.println("Subject: " + subject);
+        System.out.println("Salary: " + salary);
+    }
+}
+class Student extends Person {
+    int rollNo;
+    double marks;
+    Student(String name, int age, int rollNo) {
+        super(name, age);
+        this.rollNo = rollNo;
+        this.marks = 0;
+    }
+    Student(String name, int age, int rollNo, double marks) {
+        super(name, age);
+        this.rollNo = rollNo;
+        this.marks = marks;
+    }
+    @Override
+    void displayInfo() {
+        System.out.println("\n--- Student Information ---");
+        super.displayInfo();
+        System.out.println("Roll Number: " + rollNo);
+        System.out.println("Marks: " + marks);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Person.showUniversityInfo();
+        Teacher t1 = new Teacher("Ali", 35, "Java");
+        Teacher t2 = new Teacher("Ahmed", 40, "Python", 80000);
+        Student s1 = new Student("Ali", 20, 101);
+        Student s2 = new Student("Usman", 21, 102, 85.5);
+        t1.displayInfo();
+        t2.displayInfo();
+        s1.displayInfo();
+        s2.displayInfo();
+    }
+}
